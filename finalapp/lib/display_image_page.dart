@@ -4,7 +4,7 @@ import 'package:image_picker/image_picker.dart';
 
 class DisplayImagePage extends StatelessWidget {
   final XFile? image;
-  final Function() openCamera; // Reference to camera function from main.dart
+  final Function() openCamera; 
 
   const DisplayImagePage({required this.image, required this.openCamera});
 
@@ -12,18 +12,18 @@ class DisplayImagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 125, 241, 86),
-      body: Center( // Center all elements vertically
+      body: Center( 
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, // Align vertically
+          mainAxisAlignment: MainAxisAlignment.center, 
           children: [
-            // Text for "Image"
+            
             const Text(
               'Image',
               style: TextStyle(fontSize: 20),
             ),
-            const SizedBox(height: 20.0), // Add spacing
+            const SizedBox(height: 20.0), 
 
-            // Display the captured image with a smaller size (adjust as needed)
+          
             image != null
                 ? Container(
                     height: 200,
@@ -37,19 +37,17 @@ class DisplayImagePage extends StatelessWidget {
                     ),
                   )
                 : const Text(
-                    'No image selected', // Display placeholder if no image
+                    'No image selected', 
                     style: TextStyle(fontSize: 20),
                   ),
 
-            const SizedBox(height: 20.0), // Add spacing
-
-            // Row for buttons
+            const SizedBox(height: 20.0), 
             Row(
-              mainAxisAlignment: MainAxisAlignment.center, // Center horizontally
+              mainAxisAlignment: MainAxisAlignment.center, 
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Replace with your submit button logic
+                    
                     print('Submit button pressed!');
                   },
                   child: const SizedBox(
@@ -71,7 +69,7 @@ class DisplayImagePage extends StatelessWidget {
                 ),
                 const SizedBox(width: 16),
                 ElevatedButton(
-                  onPressed: () => Navigator.pop(context), // Navigate back
+                  onPressed: () => Navigator.pop(context), 
                   child: const SizedBox(
                     width: 100,
                     height: 50,
