@@ -19,33 +19,39 @@ class _MyAppState extends State<MyApp> {
     final XFile? pickedFile = await _imagePicker.pickImage(
       source: ImageSource.gallery,
     );
-    if (pickedFile!= null) {
+    if (pickedFile != null) {
       setState(() {
         image = pickedFile;
       });
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => DisplayImagePage(image: image, openCamera: _openCamera),
+        ),
+      );
     } else {
       print('No image selected');
     }
   }
 
   Future<void> _openCamera() async {
-  final XFile? pickedFile = await _imagePicker.pickImage(
-    source: ImageSource.camera,
-  );
-  if (pickedFile != null) {
-    setState(() {
-      image = pickedFile;
-    });
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => DisplayImagePage(image: image),
-      ),
+    final XFile? pickedFile = await _imagePicker.pickImage(
+      source: ImageSource.camera,
     );
-  } else {
-    print('No image selected');
+    if (pickedFile != null) {
+      setState(() {
+        image = pickedFile;
+      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => DisplayImagePage(image: image, openCamera: _openCamera),
+        ),
+      );
+    } else {
+      print('No image selected');
+    }
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +115,7 @@ class _MyAppState extends State<MyApp> {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  //chat with the bot
+                  
                   print('Chat with Bot');
                 },
                 child: const SizedBox(
